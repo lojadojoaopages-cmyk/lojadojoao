@@ -82,6 +82,9 @@
     /* GRID PRODUTOS */
     .grid-produtos{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px; align-items:start; }
     .produto{ background:white; border-radius:12px; padding:12px; box-shadow:var(--card-shadow); display:flex; flex-direction:column; gap:10px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .produto > h3 {
+      margin-bottom: 0px;;
+    }
     .produto img{ width:100%; height:220px; object-fit:contain; border-radius:8px; }
     .produto:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 14px 28px rgba(2,10,30,0.15); }
 
@@ -184,16 +187,70 @@
     .social-icon:hover { background:rgba(255,255,255,0.25); transform:translateY(-3px); }
     .social-icon svg { width:24px; height:24px; fill:white; }
 
-    /* RESPONSIVO */
-    @media (max-width:880px){
-      .hero { grid-template-columns: 1fr; text-align:center; min-height:auto; }
-      .hero-banner { margin-top: 24px; }
+      /* HERO base */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 28px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 28px;
+        background: linear-gradient(130deg, var(--orange-1), var(--orange-2) 60%);
+        color: white;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        box-shadow: var(--card-shadow);
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;   /* mantém proporção sem cortar */
+        border-radius: 12px;
+        box-shadow: var(--card-shadow);
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .hero {
+          grid-template-columns: 1fr;   /* empilha texto e imagem */
+          text-align: center;
+        }
+
+        .hero-banner {
+          margin-top: 20px;
+        }
+
+        .hero-banner img {
+          width: 90%;          /* quase tela toda */
+          max-height: none;    /* deixa crescer natural */
+        }
+      }
+
       .footer-container { flex-direction:column; align-items:center; text-align:center; gap:24px; }
       .sobre { flex-direction: column; text-align: center; }
       .sobre img { width: 90%; max-width: 400px; margin-top: 24px; }
-      .feed-mapa { grid-template-columns: 1fr; gap: 32px; }
+      .feed-mapa {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+        justify-content: center;
+        justify-items: center;
+        width: 100%;
+      }
+
       .insta-feed iframe, .map-container { margin: 0 auto; }
+      @media (max-width: 880px) {
+      .feed-mapa {
+        grid-template-columns: 1fr;   /* <-- aqui força ficar 1 embaixo do outro */
+        gap: 20px;
+      }
     }
+
   </style>
 </head>
 <body>
@@ -309,7 +366,7 @@
     const defaultProducts = [
       { id: 1, name: "Camiseta Hurley Vermelha", desc: "Malha macia, modelagem tradicional e logo Hurley.", img: "assets/2021-09-29 (1).webp" },
       { id: 2, name: "Combo Rip Curl", desc: "Camiseta cinza Rip Curl + boardshort listrado multicolor.", img: "assets/2021-09-29.webp" },
-      { id: 3, name: "Look OKDOK", desc: "Camiseta branca OKOK com bermuda de estampa tropical.", img: "assets/2021-09-29 (2).webp" },
+      { id: 3, name: "Look OKDOK", desc: "Camiseta branca ODKOK com bermuda de estampa tropical.", img: "assets/2021-09-29 (2).webp" },
     ];
     if(!localStorage.getItem('products')){
       localStorage.setItem('products', JSON.stringify(defaultProducts));
