@@ -187,7 +187,7 @@
     .social-icon:hover { background:rgba(255,255,255,0.25); transform:translateY(-3px); }
     .social-icon svg { width:24px; height:24px; fill:white; }
 
-      /* HERO base */
+      /* HERO */
       .hero {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -196,7 +196,7 @@
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 60px 28px;
+        padding: 40px 20px; /* padding menor */
         background: linear-gradient(130deg, var(--orange-1), var(--orange-2) 60%);
         color: white;
         border-bottom-left-radius: 30px;
@@ -204,31 +204,29 @@
         box-shadow: var(--card-shadow);
       }
 
-      .hero-banner img {
-        width: 100%;
-        height: auto;
-        max-height: 420px;
-        object-fit: contain;   /* mantém proporção sem cortar */
-        border-radius: 12px;
-        box-shadow: var(--card-shadow);
+      /* remove a altura mínima */
+      .hero {
+        min-height: auto;
       }
 
       /* MOBILE */
       @media (max-width: 768px) {
         .hero {
-          grid-template-columns: 1fr;   /* empilha texto e imagem */
+          grid-template-columns: 1fr;
           text-align: center;
+          padding: 28px 16px; /* menos espaço no mobile */
         }
 
         .hero-banner {
-          margin-top: 20px;
+          margin-top: 16px;
         }
 
         .hero-banner img {
-          width: 90%;          /* quase tela toda */
-          max-height: none;    /* deixa crescer natural */
+          width: 90%;
+          max-height: none;
         }
       }
+
 
       .footer-container { flex-direction:column; align-items:center; text-align:center; gap:24px; }
       .sobre { flex-direction: column; text-align: center; }
