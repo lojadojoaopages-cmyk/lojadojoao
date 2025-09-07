@@ -283,10 +283,26 @@
       <img src="assets/2021-06-15.webp" alt="Fachada da Loja do João (Piracicaba)">
     </section>
 
-    <section id="produtos" class="produtos">
-      <h2>Produtos em destaque</h2>
-      <div class="grid-produtos" id="productGridPublic" aria-live="polite"></div>
-    </section>
+<section id="produtos" class="produtos">
+  <h2>Produtos em destaque</h2>
+  <div class="grid-produtos" aria-live="polite">
+    <article class="produto">
+      <img src="assets/2021-09-29 (1).webp" alt="Camiseta Hurley Vermelha">
+      <h3>Camiseta Hurley Vermelha</h3>
+      <p>Malha macia, modelagem tradicional e logo Hurley.</p>
+    </article>
+    <article class="produto">
+      <img src="assets/2021-09-29.webp" alt="Combo Rip Curl">
+      <h3>Combo Rip Curl</h3>
+      <p>Camiseta cinza Rip Curl + boardshort listrado multicolor.</p>
+    </article>
+    <article class="produto">
+      <img src="assets/2021-09-29 (2).webp" alt="Look OKDOK">
+      <h3>Look OKDOK</h3>
+      <p>Camiseta branca OKDOK com bermuda de estampa tropical.</p>
+    </article>
+  </div>
+</section>>
 
     <!-- FEED + MAPA LADO A LADO (substituir toda a seção original) -->
     <section class="feed-mapa">
@@ -358,40 +374,6 @@
       </div>
     </footer>
   </main>
-
-  <script>
-    // Carregar produtos do localStorage
-    const defaultProducts = [
-      { id: 1, name: "Camiseta Hurley Vermelha", desc: "Malha macia, modelagem tradicional e logo Hurley.", img: "assets/2021-09-29 (1).webp" },
-      { id: 2, name: "Combo Rip Curl", desc: "Camiseta cinza Rip Curl + boardshort listrado multicolor.", img: "assets/2021-09-29.webp" },
-      { id: 3, name: "Look OKDOK", desc: "Camiseta branca ODKOK com bermuda de estampa tropical.", img: "assets/2021-09-29 (2).webp" },
-    ];
-    if(!localStorage.getItem('products')){
-      localStorage.setItem('products', JSON.stringify(defaultProducts));
-    }
-
-    function loadPublicProducts(){
-      const products = JSON.parse(localStorage.getItem('products')) || defaultProducts;
-      const grid = document.getElementById('productGridPublic');
-      grid.innerHTML = '';
-      products.forEach(prod => {
-        const article = document.createElement('article');
-        article.className = 'produto';
-        const img = document.createElement('img');
-        img.src = prod.img;
-        img.alt = prod.name;
-        const h3 = document.createElement('h3');
-        h3.textContent = prod.name;
-        const p = document.createElement('p');
-        p.textContent = prod.desc;
-        article.appendChild(img);
-        article.appendChild(h3);
-        article.appendChild(p);
-        grid.appendChild(article);
-      });
-    }
-    loadPublicProducts();
-  </script>
 </body>
 </html>
 
