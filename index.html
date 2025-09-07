@@ -10,6 +10,9 @@
   <meta property="og:type" content="website" />
   <title>Loja do João — Piracicaba</title>
 
+  <!-- Fonte Hero -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --blue-1:#063a83; 
@@ -25,32 +28,21 @@
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.45;
-    }
+    body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.45;}
     main { background: #ffffff; min-height: 100%; }
 
     /* NAVBAR FIXA */
     .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 16px 28px;
       background: rgba(255,255,255,0.95);
       border-bottom: 1px solid #e6e6e6;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .logo { height: 56px; margin-right: 24px; transition: transform 0.3s ease; }
+    .logo { height: 56px; transition: transform 0.3s ease; }
     .logo:hover { transform: scale(1.05); }
-    .menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 24px; align-items: center; }
+    .menu { list-style: none; display: flex; gap: 24px; margin:0; padding:0; }
     .menu a { color: var(--blue-1); text-decoration: none; font-weight: 600; font-size: 16px; position: relative; transition: color 0.25s, transform 0.25s; }
     .menu a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--orange-1); transition: width 0.25s ease; }
     .menu a:hover { color: var(--blue-2); transform: translateY(-2px); }
@@ -58,21 +50,17 @@
 
     /* HERO */
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 28px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 28px;
+      max-width: 1200px; margin: 0 auto; padding: 40px 20px;
       background: linear-gradient(130deg, var(--orange-1), var(--orange-2) 60%);
-      color: white;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
+      color: white; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
       box-shadow: var(--card-shadow);
     }
-    .hero-text { display: flex; flex-direction: column; gap: 18px; }
-    .hero-banner { display: flex; justify-content: center; align-items: center; }
+    .hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem; margin:0;
+    }
+    .hero-text p { font-size: 1.2rem; margin: 0 0 12px 0; }
     .hero-banner img { width: 100%; max-height: 380px; object-fit: contain; border-radius: 12px; box-shadow: var(--card-shadow); }
     .cta-btn{ background:white; color:var(--blue-1); padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,0.12); transition: transform 0.25s ease, box-shadow 0.25s ease; }
     .cta-btn:hover{ transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 24px rgba(0,0,0,0.18); }
@@ -84,42 +72,46 @@
     /* SOBRE */
     .sobre { display:flex; gap:16px; align-items:center; flex-wrap:wrap; justify-content:center; }
     .sobre div { flex:1 1 40%; min-width:200px; }
-    .sobre img { flex:1 1 50%; max-width:420px; width:100%; border-radius:12px; box-shadow:var(--card-shadow); }
+    .sobre img { flex:1 1 50%; max-width:420px; border-radius:12px; box-shadow:var(--card-shadow); }
 
     /* PRODUTOS */
     .grid-produtos{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px; align-items:start; }
-    .produto{ background:white; border-radius:12px; padding:12px; box-shadow:var(--card-shadow); display:flex; flex-direction:column; gap:10px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .produto{ background:white; border-radius:12px; padding:12px; box-shadow:var(--card-shadow); display:flex; flex-direction:column; gap:6px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .produto h3 { margin: 0 0 4px 0; font-size: 1.05rem; }
+    .produto p { margin:0; font-size: 0.95rem; color:#444; }
     .produto img{ width:100%; height:220px; object-fit:contain; border-radius:8px; }
     .produto:hover{ transform:translateY(-6px); box-shadow:0 14px 28px rgba(2,10,30,0.15); }
 
     /* FEED + MAPA */
-    .feed-mapa { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+    .feed-mapa { 
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+      align-items: start; justify-content:center; justify-items: center;
+    }
     .insta-feed .iframe-wrapper, .map-container { width:100%; max-width:420px; aspect-ratio: 1/1; border-radius:12px; overflow:hidden; box-shadow:var(--card-shadow); }
-    iframe { border:0; width:100%; height:100%; }
 
     /* CONTATO */
     .contato { text-align:center; }
 
     /* FOOTER */
     .footer { background: linear-gradient(90deg, var(--blue-2), var(--blue-1)); color:#fff; margin-top:40px; padding:40px 20px 20px; }
-    .footer-container { display:flex; justify-content:center; flex-wrap:wrap; max-width:1200px; margin:0 auto; gap:40px; text-align:center; }
+    .footer-container { display:flex; justify-content:center; flex-wrap:wrap; gap:40px; text-align:center; }
     .footer a { color:#f0f0f0; text-decoration:none; }
     .footer a:hover { color: var(--orange-1); }
     .footer-bottom {text-align:center; margin-top:28px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.2); font-size:13px; color:#ddd;}
 
+    /* ÍCONES SOCIAIS */
+    .social-icons { display:flex; justify-content:center; gap:16px; margin-top:12px; }
+    .social-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); transition:all 0.3s ease; }
+    .social-icon:hover { background:rgba(255,255,255,0.25); transform:translateY(-3px); }
+    .social-icon svg { width:22px; height:22px; fill:white; }
+
     /* WHATSAPP FLOAT */
     .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      padding: 14px 16px;
-      border-radius: 50%;
-      box-shadow: var(--card-shadow);
-      font-size: 24px;
-      text-align: center;
-      transition: transform 0.2s ease;
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25d366; color: white;
+      padding: 14px; border-radius: 50%;
+      box-shadow: var(--card-shadow); font-size: 24px;
+      text-align: center; transition: transform 0.2s ease;
       z-index: 2000;
     }
     .whatsapp-btn:hover { transform: scale(1.1); }
@@ -127,6 +119,7 @@
     /* RESPONSIVO */
     @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; text-align:center; }
+      .hero-text h1 { font-size: 1.8rem; }
       .feed-mapa { grid-template-columns: 1fr; }
     }
   </style>
@@ -227,7 +220,22 @@
         </div>
         <div>
           <h4>Redes Sociais</h4>
-          <p><a href="https://www.instagram.com/lojadojoaooficial/" target="_blank">Instagram</a> | <a href="https://www.facebook.com/lojadojoaosurf/?locale=pt_BR" target="_blank">Facebook</a></p>
+          <div class="social-icons">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/lojadojoaooficial/" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM18.406 6.355a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88zM12 8.001a4 4 0 1 0 .001 8.001A4 4 0 0 0 12 8z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/lojadojoaosurf/?locale=pt_BR" target="_blank" class="social-icon" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 18.063 4.388 23.027 10.125 23.927v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.063 24 12.073z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5519988553385" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.5 11.5 0 0 0 3.48 20.52L2 22l1.64-.46A11.5 11.5 0 1 0 20.52 3.48zM12 20.5a8.5 8.5 0 0 1-4.31-1.17l-.31-.18-2.56.72.7-2.49-.2-.33A8.5 8.5 0 1 1 20.5 12 8.5 8.5 0 0 1 12 20.5zm4.71-6.3c-.26-.13-1.53-.76-1.77-.85s-.41-.13-.58.13-.66.85-.81 1.03-.3.19-.56.06a7 7 0 0 1-2.06-1.28 7.71 7.71 0 0 1-1.43-1.77c-.15-.26 0-.4.11-.53.11-.11.26-.3.4-.45s.19-.26.26-.43a.5.5 0 0 0 0-.47C10.22 8.1 9.6 6.7 9.37 6.2s-.47-.43-.64-.44h-.55a1.06 1.06 0 0 0-.77.36 3.23 3.23 0 0 0-1 2.4 5.58 5.58 0 0 0 1.16 2.96 12.74 12.74 0 0 0 4.9 4.9 5.92 5.92 0 0 0 2.96 1.16 2.54 2.54 0 0 0 2.24-1.55 2.09 2.09 0 0 0 .14-1.48c-.08-.08-.26-.13-.52-.26z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
