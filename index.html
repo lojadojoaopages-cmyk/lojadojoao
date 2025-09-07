@@ -1,0 +1,342 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Loja do João - Moda masculina em Piracicaba. Camisetas, bermudas, bonés, calçados e acessórios.">
+  <title>Loja do João — Piracicaba</title>
+
+  <style>
+    :root{
+      --blue-1:#063a83; 
+      --blue-2:#0b60c6;
+      --orange-1:#ff9a00;
+      --orange-2:#ff6a00;
+      --bg:#f4f6f7;
+      --text:#222;
+      --radius:12px;
+      --card-shadow: 0 6px 18px rgba(2,10,30,0.12);
+      --transition: 240ms ease;
+      --nav-height: 88px; 
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    main { background: #ffffff; min-height: 100%; }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 40px;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid #e6e6e6;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .logo { height: 88px; margin-right: 24px; transition: transform 0.3s ease; }
+    .logo:hover { transform: scale(1.05); }
+    .menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 28px; align-items: center; }
+    .menu a { color: var(--blue-1); text-decoration: none; font-weight: 600; font-size: 16px; position: relative; transition: color 0.25s var(--transition), transform 0.25s var(--transition); }
+    .menu a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--orange-1); transition: width 0.25s ease; }
+    .menu a:hover { color: var(--blue-2); transform: translateY(-3px); }
+    .menu a:hover::after { width: 100%; }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 28px;
+      max-width: 94.8%;
+      min-height: 50vh; 
+      padding: 36px 28px;
+      background: linear-gradient(130deg, var(--orange-1), var(--orange-2) 60%);
+      color: white;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: var(--card-shadow);
+    }
+    .hero-text { display: flex; flex-direction: column; gap: 18px; }
+    .hero-banner { display: flex; justify-content: center; align-items: center; }
+    .hero-banner img { width: 100%; max-height: 400px; object-fit: contain; border-radius: 12px; box-shadow: var(--card-shadow); }
+    .cta-btn{ background:white; color:var(--blue-1); padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,0.12); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .cta-btn:hover{ transform: translateY(-4px) scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,0.18); }
+
+    /* SECTIONS */
+    section{padding:40px 28px;max-width:1200px;margin:0 auto}
+    h2{color:var(--blue-1);margin:0 0 18px 0}
+    .sobre { display:flex; gap:16px; align-items:center; flex-wrap:wrap; justify-content:center; }
+    .sobre div { flex:1 1 40%; min-width:180px; }
+    .sobre img { flex:1 1 50%; max-width:420px; width:100%; border-radius:12px; box-shadow:var(--card-shadow); }
+
+    /* GRID PRODUTOS */
+    .grid-produtos{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px; align-items:start; }
+    .produto{ background:white; border-radius:12px; padding:12px; box-shadow:var(--card-shadow); display:flex; flex-direction:column; gap:10px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .produto img{ width:100%; height:220px; object-fit:contain; border-radius:8px; }
+    .produto:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 14px 28px rgba(2,10,30,0.15); }
+
+    /* FEED + MAPA LADO A LADO */
+    .feed-mapa {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+      justify-content: center;
+      justify-items: center;
+      width: 100%;
+    }
+
+    /* Instagram */
+    .insta-feed {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .insta-feed .iframe-wrapper {
+      width: 22rem;
+      max-width: 420px;
+      height: 372.5px;        /* altura fixa com scroll */
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .insta-feed iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0;
+      background: transparent;
+    }
+
+
+
+    /* Mapa */
+    .map-container {
+      width: 22rem;
+      max-width: 420px;
+      height: 372.5px;   
+      max-width: 420px;
+      aspect-ratio: 1 / 1;   /* sempre quadrado */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-container iframe {
+      width: 22rem;
+      max-width: 420px;
+      height: 372.5px;   
+      border: 0;
+      display: block;
+    }
+
+    /* Responsivo */
+    @media (max-width: 880px) {
+      .feed-mapa {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .insta-feed .iframe-wrapper,
+      .map-container {
+        max-width: 95%;
+      }
+    }
+    @media (max-width: 420px) {
+      .insta-feed .iframe-wrapper,
+      .map-container {
+        max-width: 98%;
+      }
+    }
+
+
+    /* CONTATO CENTRALIZADO */
+    .contato { text-align:center; }
+
+    /* FOOTER */
+    .footer { background: linear-gradient(90deg, var(--blue-2), var(--blue-1)); color:#fff; margin-top:40px; padding:40px 20px 20px 20px; }
+    .footer-container { display:flex; justify-content:center; flex-wrap:wrap; max-width:1200px; margin:0 auto; gap:40px; align-items:flex-start; }
+    .footer-links, .footer-social { flex:0 1 auto; min-width:220px; }
+    .footer h3, .footer h4 {margin: 0 0 12px 0; color: #fff;}
+    .footer p, .footer a, .footer li {color:#f0f0f0; margin:6px 0; text-decoration:none; font-size:14px;}
+    .footer a:hover { color: var(--orange-1); }
+    .footer-links ul {list-style:none; padding:0; margin:0;}
+    .footer-links li {margin:6px 0;}
+    .footer-bottom {text-align:center; margin-top:28px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.2); font-size:13px; color:#ddd;}
+    .footer-social { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .social-icons { display:flex; justify-content: center; gap:16px; }
+    .social-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.15); transition:all 0.3s ease; }
+    .social-icon:hover { background:rgba(255,255,255,0.25); transform:translateY(-3px); }
+    .social-icon svg { width:24px; height:24px; fill:white; }
+
+    /* RESPONSIVO */
+    @media (max-width:880px){
+      .hero { grid-template-columns: 1fr; text-align:center; min-height:auto; }
+      .hero-banner { margin-top: 24px; }
+      .footer-container { flex-direction:column; align-items:center; text-align:center; gap:24px; }
+      .sobre { flex-direction: column; text-align: center; }
+      .sobre img { width: 90%; max-width: 400px; margin-top: 24px; }
+      .feed-mapa { grid-template-columns: 1fr; gap: 32px; }
+      .insta-feed iframe, .map-container { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar" style="background-color: var();">
+    <img src="assets/Copilot_20250906_225532.png" alt="Loja do João - logo" class="logo">
+    <ul class="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- HERO + BANNER -->
+    <section class="hero" aria-label="Apresentação da loja">
+      <div class="hero-text">
+        <h1 style="margin-bottom: 0rem;">Loja do João</h1>
+        <p style="margin-top: 0rem;">Moda casual, surfwear e acessórios. Produtos de qualidade para o seu dia a dia.</p>
+        <a href="#produtos" class="cta-btn">Ver Produtos</a>
+      </div>
+      <div class="hero-banner">
+        <img src="assets/344857607_1236184017023358_5885815329390147991_n.png" alt="Banner Loja do João">
+      </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+      <div>
+        <h2>Sobre Nós</h2>
+        <p>A Loja do João é referência em moda casual em Piracicaba, com grande variedade de camisetas, bermudas, bonés e calçados. Atendimento próximo e curadoria em marcas surfwear.</p>
+        <p class="muted">Aberto: Seg - Sáb 09:00 - 18:30</p>
+      </div>
+      <img src="assets/2021-06-15.webp" alt="Fachada da Loja do João (Piracicaba)">
+    </section>
+
+    <section id="produtos" class="produtos">
+      <h2>Produtos em destaque</h2>
+      <div class="grid-produtos" id="productGridPublic" aria-live="polite"></div>
+    </section>
+
+    <!-- FEED + MAPA LADO A LADO (substituir toda a seção original) -->
+    <section class="feed-mapa">
+      <div>
+        <h2>Últimos Reels</h2>
+        <div class="insta-feed">
+          <div class="iframe-wrapper">
+            <iframe
+              src="https://www.instagram.com/lojadojoaooficial/embed"
+              allowtransparency="true"
+              scrolling="no" 
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Feed Instagram Loja do João"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Como Chegar</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps?q=R.+Nilo+Peçanha,+842+-+Vila+Sônia,+Piracicaba+-+SP,+13408-025&output=embed&z=18"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa Loja do João"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+      <h2>Contato</h2>
+      <p>📍 R. Nilo Peçanha, 842 - Vila Sônia, Piracicaba - SP</p>
+      <p>📞 <a href="tel:+5519988553385">(19) 98855-3385</a></p>
+      <p>📧 <a href="mailto:joao.lojadojoao@terra.com.br">joao.lojadojoao@terra.com.br</a></p>
+      <p>💬 <a href="https://wa.me/5519988553385" target="_blank">Fale conosco no WhatsApp</a></p>
+      <p>⭐ <a href="https://share.google/K5f3cKWvq0X3y0iIR" target="_blank">Avalie nossa loja no Google</a></p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-links">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Redes Sociais</h4>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/lojadojoaooficial/" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM18.406 6.355a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88zM12 8.001a4 4 0 1 0 .001 8.001A4 4 0 0 0 12 8z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/lojadojoaosurf/?locale=pt_BR" target="_blank" class="social-icon" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 18.063 4.388 23.027 10.125 23.927v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.063 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Loja do João • Todos os direitos reservados</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Carregar produtos do localStorage
+    const defaultProducts = [
+      { id: 1, name: "Camiseta Hurley Vermelha", desc: "Malha macia, modelagem tradicional e logo Hurley.", img: "assets/2021-09-29 (1).webp" },
+      { id: 2, name: "Combo Rip Curl", desc: "Camiseta cinza Rip Curl + boardshort listrado multicolor.", img: "assets/2021-09-29.webp" },
+      { id: 3, name: "Look OKDOK", desc: "Camiseta branca OKOK com bermuda de estampa tropical.", img: "assets/2021-09-29 (2).webp" },
+    ];
+    if(!localStorage.getItem('products')){
+      localStorage.setItem('products', JSON.stringify(defaultProducts));
+    }
+
+    function loadPublicProducts(){
+      const products = JSON.parse(localStorage.getItem('products')) || defaultProducts;
+      const grid = document.getElementById('productGridPublic');
+      grid.innerHTML = '';
+      products.forEach(prod => {
+        const article = document.createElement('article');
+        article.className = 'produto';
+        const img = document.createElement('img');
+        img.src = prod.img;
+        img.alt = prod.name;
+        const h3 = document.createElement('h3');
+        h3.textContent = prod.name;
+        const p = document.createElement('p');
+        p.textContent = prod.desc;
+        article.appendChild(img);
+        article.appendChild(h3);
+        article.appendChild(p);
+        grid.appendChild(article);
+      });
+    }
+    loadPublicProducts();
+  </script>
+</body>
+</html>
+
