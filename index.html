@@ -56,11 +56,21 @@
       color: white; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
       box-shadow: var(--card-shadow);
     }
-    .hero-text h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.4rem; margin:0;
-    }
-    .hero-text p { font-size: 1.2rem; margin: 0 0 12px 0; }
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 26px; /* antes era 18px */
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;   /* maior impacto */
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
     .hero-banner img { width: 100%; max-height: 380px; object-fit: contain; border-radius: 12px; box-shadow: var(--card-shadow); }
     .cta-btn{ background:white; color:var(--blue-1); padding:12px 18px; border-radius:10px; font-weight:700; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,0.12); transition: transform 0.25s ease, box-shadow 0.25s ease; }
     .cta-btn:hover{ transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 24px rgba(0,0,0,0.18); }
@@ -87,7 +97,45 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
       align-items: start; justify-content:center; justify-items: center;
     }
-    .insta-feed .iframe-wrapper, .map-container { width:100%; max-width:420px; aspect-ratio: 1/1; border-radius:12px; overflow:hidden; box-shadow:var(--card-shadow); }
+    /* Instagram */
+.insta-feed .iframe-wrapper {
+  width: 22rem;
+  max-width: 420px;
+  height: 372.5px;   
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  background: transparent;
+}
+
+.insta-feed iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;  /* ocupa todo espaço, sem scroll */
+  display: block;
+  margin: 0;
+  background: transparent;
+}
+
+/* Mapa */
+.map-container {
+  width: 22rem;
+  max-width: 420px;
+  height: 372.5px;   
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: stretch;   /* garante ajuste */
+  justify-content: center;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
 
     /* CONTATO */
     .contato { text-align:center; }
