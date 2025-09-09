@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
@@ -76,6 +76,38 @@ h2{color:var(--blue-1); margin:0 0 18px 0; font-family: 'Montserrat', sans-serif
 }
 .sobre img:hover { transform: scale(1.03); }
 .muted { color:#555; font-style: italic; margin-top:8px; }
+
+/* VÍDEO */
+.video-section { text-align: center; }
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  margin: 2rem auto;
+}
+.video-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px) brightness(0.6);
+  transform: scale(1.2);
+  z-index: 0;
+}
+.video-foreground {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+}
 
 /* PRODUTOS */
 .grid-produtos{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:28px; align-items:stretch; }
@@ -166,6 +198,21 @@ h2{color:var(--blue-1); margin:0 0 18px 0; font-family: 'Montserrat', sans-serif
       <p class="muted">Aberto: Seg - Sáb 09:00 - 18:30</p>
     </div>
     <img src="assets/2021-06-15.webp" alt="Fachada da Loja do João em Piracicaba" loading="lazy">
+  </section>
+
+  <!-- VÍDEO -->
+  <section class="video-section fade-in">
+    <div class="video-wrapper">
+      <!-- Fundo borrado -->
+      <video class="video-bg" autoplay muted loop playsinline>
+        <source src="assets/@ripcurl_brasil.mp4" type="video/mp4">
+      </video>
+      <!-- Vídeo em destaque -->
+      <video class="video-foreground" autoplay muted loop playsinline>
+        <source src="assets/@ripcurl_brasil.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo em HTML5.
+      </video>
+    </div>
   </section>
 
   <!-- PRODUTOS -->
