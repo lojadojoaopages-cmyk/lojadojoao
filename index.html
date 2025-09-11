@@ -23,7 +23,7 @@
             --transition: 240ms ease;
         }
         *{box-sizing:border-box;}
-        body{margin:0; background:var(--bg); color:var(--text); line-height:1.45; -webkit-font-smoothing:antialiased;}
+        body{margin:0; background:var(--bg); color:var(--text); line-height:1.45; -webkit-font-smoothing:antialiased; overflow-x: hidden;}
         main { background: #ffffff; min-height: 100%; }
         
         /* NAVBAR */
@@ -86,7 +86,7 @@
             align-items: center;
             gap: 24px;
             max-width: 1100px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 40px 20px;
             background: linear-gradient(135deg, var(--orange-1), var(--orange-2) 70%);
             color: white;
@@ -209,8 +209,8 @@
             border-radius: 10px;
         }
         
-        /* PRODUTOS QUIKSILVER - GRID DE CARTÕES */
-        .produtos-quiksilver {
+        /* PRODUTOS MARCAS - GRID DE CARTÕES */
+        .produtos-marcas {
             text-align: center;
             padding: 40px 20px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -219,15 +219,17 @@
             max-width: 1200px;
         }
         /* GRID que acomoda 1 a 3 cards responsivamente */
-        .quiksilver-grid {
+        .marcas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            align-items: start;
+            align-items: stretch; /* Força cards terem mesma altura */
             justify-items: center;
         }
-        .quiksilver-card {
+        .marca-card {
             width: 100%;
+            max-width: 400px;
+            min-height: 460px; /* Altura mínima para uniformidade */
             background: white;
             border-radius: 16px;
             padding: 18px;
@@ -241,13 +243,17 @@
             align-items: center;
             gap: 12px;
             justify-content: center;
+            min-height: 50px; /* Altura mínima do header */
         }
-        .quiksilver-logo {
+        .brand-logo {
             width: 44px;
             height: 44px;
-            fill: #000;
-            opacity: 0.95;
+            object-fit: contain;
             transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .brand-logo:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
         .brand-title {
             font-family: 'Montserrat', sans-serif;
@@ -258,31 +264,52 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        /* Placeholder para marca vazia */
+        .marca-card.empty {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 460px;
+        }
+        .empty-placeholder {
+            color: #999;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
         .carousel-container {
             position: relative;
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
             background: linear-gradient(135deg, #fff, #f8f9fa);
+            flex: 1; /* Ocupa espaço disponível */
+            display: flex;
+            flex-direction: column;
         }
         .carousel-wrapper {
             position: relative;
             overflow: hidden;
+            flex: 1;
         }
         .carousel-track {
             display: flex;
             transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform;
+            height: 100%;
         }
         .carousel-slide {
             min-width: 100%;
             padding: 12px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
         .carousel-slide img {
             width: 100%;
-            height: 220px; /* menor altura para caber três cards harmoniosamente */
-            object-fit: cover; /* mantém imagem visualmente agradável */
+            height: 220px;
+            object-fit: contain; /* MUDANÇA PRINCIPAL - mostra imagem completa */
             background: #fafafa;
             border-radius: 10px;
             display: block;
@@ -293,6 +320,7 @@
             border-radius: 10px;
             background: transparent;
             text-align: left;
+            flex: 1;
         }
         .product-name {
             font-family: 'Montserrat', sans-serif;
@@ -359,17 +387,6 @@
             height: 8px;
         }
 
-        .brand-logo {
-            width: 44px;
-            height: 44px;
-            object-fit: contain;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .brand-logo:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
         /* FEED + MAPA */
         .feed-mapa {
             display: grid;
@@ -381,7 +398,7 @@
         }
         .insta-feed .iframe-wrapper,
         .map-container {
-            width: 22rem;
+            width: 100%;
             max-width: 420px;
             height: 320px;
             border-radius: 12px;
@@ -409,7 +426,7 @@
             border: none !important;
         }
 
-        /* CONTATO / FOOTER / WHATSAPP ... (mantive igual) */
+        /* CONTATO / FOOTER / WHATSAPP */
         .contato {
             text-align:center;
             font-size:1rem;
@@ -506,15 +523,32 @@
         .whatsapp-btn:hover {
             transform: scale(1.15);
         }
+        
         /* RESPONSIVO */
         @media (max-width: 880px) {
+            .navbar {
+                padding: 12px 16px;
+            }
+            .logo {
+                height: 48px;
+            }
+            .menu {
+                gap: 16px;
+            }
+            .menu a {
+                font-size: 14px;
+            }
             .hero {
                 grid-template-columns: 1fr;
                 text-align:center;
                 padding:28px 20px;
+                margin: 10px;
             }
             .hero-text h1 {
                 font-size:2rem;
+            }
+            .hero-text h3 {
+                font-size: 1.2rem;
             }
             .hero-banner img {
                 max-height: 220px;
@@ -527,30 +561,131 @@
             .map-container {
                 width: 100%;
                 max-width: 100%;
-                height: 20%;
-                min-height: 60%;
+                height: 320px;
             }
             .hero .cta-btn {
                 margin-left:auto;
                 margin-right:auto;
             }
             .sobre img {
-                max-height: 70%;
-                height: 100%;
                 width: 100%;
-                max-width: 80%;
+                max-width: 90%;
             }
             .brand-title {
-                font-size: 1.05rem;
+                font-size: 1.1rem;
+            }
+            .carousel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
             }
             .carousel-btn.prev {
-                left: 6px;
+                left: 5px;
             }
             .carousel-btn.next {
-                right: 6px;
+                right: 5px;
+            }
+            .carousel-slide img {
+                height: 200px;
+            }
+            /* Ajuste responsivo para cards */
+            .marca-card {
+                min-height: 420px;
+                padding: 14px;
+            }
+            .marcas-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .produtos-marcas {
+                padding: 30px 10px;
+                border-radius: 16px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            section {
+                padding: 30px 16px;
+            }
+            .hero {
+                padding: 24px 16px;
+                margin: 8px;
+            }
+            .hero-text h1 {
+                font-size: 1.75rem;
+            }
+            .hero-text h3 {
+                font-size: 1.1rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+            }
+            .cta-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            .marca-card {
+                min-height: 380px;
+                padding: 12px;
+            }
+            .brand-header {
+                min-height: 45px;
+            }
+            .brand-logo {
+                width: 36px;
+                height: 36px;
+            }
+            .brand-title {
+                font-size: 1rem;
+            }
+            .carousel-slide {
+                padding: 8px;
             }
             .carousel-slide img {
                 height: 180px;
+            }
+            .product-name {
+                font-size: 0.95rem;
+            }
+            .product-description {
+                font-size: 0.85rem;
+            }
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+            .whatsapp-btn {
+                padding: 14px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar {
+                padding: 10px 12px;
+            }
+            .logo {
+                height: 42px;
+            }
+            .menu {
+                gap: 12px;
+            }
+            .menu a {
+                font-size: 13px;
+            }
+            .hero {
+                padding: 20px 12px;
+            }
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+            .marca-card {
+                min-height: 360px;
+            }
+            .carousel-slide img {
+                height: 160px;
             }
         }
         
@@ -615,20 +750,19 @@
             </div>
         </section>
         
-        <!-- PRODUTOS QUIKSILVER -->
-        <section id="produtos" class="produtos-quiksilver fade-in">
+        <!-- PRODUTOS MARCAS -->
+        <section id="produtos" class="produtos-marcas fade-in">
             <h2 style="margin-bottom:18px;">— Produtos —</h2>
-            <div class="quiksilver-grid">
-                <!-- CARD 1 -->
-                <div class="quiksilver-card">
+            <div class="marcas-grid">
+                <!-- CARD 1 - QUIKSILVER -->
+                <div class="marca-card">
                     <div class="brand-header">
-                        <img src="assets/QuiksilverLogo.png" alt="Logo Quiksilver" class="quiksilver-logo">
+                        <img src="assets/QuiksilverLogo.png" alt="Logo Quiksilver" class="brand-logo">
                         <h3 class="brand-title">Quiksilver</h3>
                     </div>
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <div class="carousel-track">
-                                <!-- Slides (repita/edite as imagens conforme precisar) -->
                                 <div class="carousel-slide">
                                     <img src="assets/Quiksilver1.jpg" alt="Boardshort Quiksilver Highlite" loading="lazy">
                                     <div class="product-info">
@@ -651,38 +785,38 @@
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Quiksilver4.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/Quiksilver4.jpg" alt="Boardshort Quiksilver Word Block" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Boardshort Word Block</h4>
                                         <p class="product-description">Design com estampa tipográfica em degradê azul.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Quiksilver5.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/Quiksilver5.jpg" alt="Boardshort Quiksilver Word Block" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Boardshort Word Block</h4>
                                         <p class="product-description">Design com estampa tipográfica em degradê azul.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Quiksilver6.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/Quiksilver6.jpg" alt="Camiseta Quiksilver Classic" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Camiseta Quiksilver Classic</h4>
                                         <p class="product-description">Camiseta preta essencial com logo icônico da marca.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Quiksilver7.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/Quiksilver7.jpg" alt="Camiseta Quiksilver Classic" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Camiseta Quiksilver Classic</h4>
                                         <p class="product-description">Camiseta preta essencial com logo icônico da marca.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/Quiksilver8.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/Quiksilver8.jpg" alt="Boné Flexfit Triple Logo" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Boné Flexfit Triple Logo</h4>
-                                        <p class="product-description">Logos bordados em sequência. </p>
+                                        <p class="product-description">Logos bordados em sequência.</p>
                                     </div>
                                 </div>
                             </div>
@@ -695,30 +829,31 @@
                     </div>
                 </div>
 
-                <div class="quiksilver-card">
+                <!-- CARD 2 - RIPCURL -->
+                <div class="marca-card">
                     <div class="brand-header">
-                        <img src="assets/RipCurlLogo.jpg" alt="Logo RipCurl" class="quiksilver-logo">
+                        <img src="assets/RipCurlLogo.jpg" alt="Logo RipCurl" class="brand-logo">
                         <h3 class="brand-title">RipCurl</h3>
                     </div>
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <div class="carousel-track">
                                 <div class="carousel-slide">
-                                    <img src="assets/RipCurl1.jpg" alt="Boardshort Quiksilver Highlite" loading="lazy">
+                                    <img src="assets/RipCurl1.jpg" alt="Boardshort RipCurl" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Boardshort Highlite</h4>
                                         <p class="product-description">Bermuda d'água premium com tecnologia 4-way stretch.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/RipCurl2.jpg" alt="Boardshort Quiksilver Division" loading="lazy">
+                                    <img src="assets/RipCurl2.jpg" alt="Boardshort RipCurl Division" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Boardshort Division</h4>
                                         <p class="product-description">Design gráfico ousado e acabamento premium.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="assets/RipCurl3.jpg" alt="Short Quiksilver Athletic" loading="lazy">
+                                    <img src="assets/RipCurl3.jpg" alt="Short RipCurl Athletic" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Short Athletic</h4>
                                         <p class="product-description">Short esportivo versátil, leve e respirável.</p>
@@ -734,45 +869,11 @@
                     </div>
                 </div>
 
-                <div class="quiksilver-card">
-                    <div class="brand-header">
-                       <div class="brand-header">
-                        <img src="assets/RipCurlLogo.jpg" alt="Logo RipCurl" class="quiksilver-logo">
-                        <h3 class="brand-title">RipCurl</h3>
-                    </div>
-                </div>
-
-                    <div class="carousel-container">
-                        <div class="carousel-wrapper">
-                            <div class="carousel-track">
-                                <div class="carousel-slide">
-                                    <img src="image-1.jpg" alt="Boardshort Quiksilver Highlite" loading="lazy">
-                                    <div class="product-info">
-                                        <h4 class="product-name">Boardshort Highlite</h4>
-                                        <p class="product-description">Bermuda d'água premium com tecnologia 4-way stretch.</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="image-2.jpg" alt="Boardshort Quiksilver Division" loading="lazy">
-                                    <div class="product-info">
-                                        <h4 class="product-name">Boardshort Division</h4>
-                                        <p class="product-description">Design gráfico ousado e acabamento premium.</p>
-                                    </div>
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="image-3.jpg" alt="Short Quiksilver Athletic" loading="lazy">
-                                    <div class="product-info">
-                                        <h4 class="product-name">Short Athletic</h4>
-                                        <p class="product-description">Short esportivo versátil, leve e respirável.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="carousel-btn prev" aria-label="Anterior">❮</button>
-                        <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
-                        <div class="carousel-indicators"></div>
+                <!-- CARD 3 - VAZIO/PLACEHOLDER -->
+                <div class="marca-card empty">
+                    <div class="empty-placeholder">
+                        <p>Em breve</p>
+                        <p style="font-size: 0.9rem; font-weight: 400;">Nova marca chegando...</p>
                     </div>
                 </div>
             </div>
@@ -859,8 +960,10 @@
         });
 
         /* CARROSSEIS INDEPENDENTES */
-        document.querySelectorAll('.quiksilver-card').forEach((card, cardIndex) => {
+        document.querySelectorAll('.marca-card:not(.empty)').forEach((card, cardIndex) => {
             const track = card.querySelector('.carousel-track');
+            if (!track) return; // Pula cards vazios
+            
             const slides = Array.from(track.children);
             const prevBtn = card.querySelector('.carousel-btn.prev');
             const nextBtn = card.querySelector('.carousel-btn.next');
