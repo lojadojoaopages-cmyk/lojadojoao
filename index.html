@@ -18,15 +18,28 @@
             --orange-2:#ff6a00;
             --bg:#f4f6f7;
             --text:#222;
-            --radius:12px;
-            --card-shadow: 0 6px 18px rgba(2,10,30,0.12);
+            --radius:10px;
+            --card-shadow: 0 4px 12px rgba(2,10,30,0.1);
             --transition: 240ms ease;
         }
-        *{box-sizing:border-box;}
-        body{margin:0; background:var(--bg); color:var(--text); line-height:1.45; -webkit-font-smoothing:antialiased; overflow-x: hidden;}
-        main { background: #ffffff; min-height: 100%; }
         
-        /* NAVBAR */
+        *{box-sizing:border-box;}
+        body{
+            margin:0; 
+            background:var(--bg); 
+            color:var(--text); 
+            line-height:1.4; 
+            -webkit-font-smoothing:antialiased; 
+            overflow-x: hidden;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+        main { 
+            background: #ffffff; 
+            min-height: 100%; 
+        }
+        
+        /* NAVBAR - MAIS COMPACTA */
         .navbar {
             position: sticky;
             top: 0;
@@ -34,160 +47,200 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 28px;
+            padding: 12px 24px;
             background: rgba(255,255,255,0.95);
             border-bottom: 1px solid #e6e6e6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
+        
         .logo {
-            height: 56px;
+            height: 42px;
             transition: transform 0.3s ease;
         }
+        
         .logo:hover {
             transform: scale(1.05);
         }
+        
         .menu {
             list-style: none;
             display: flex;
-            gap: 24px;
+            gap: 20px;
             margin:0;
             padding:0;
         }
+        
         .menu a {
             color: var(--blue-1);
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             position: relative;
             transition: color 0.25s, transform 0.25s;
         }
+        
         .menu a::after {
             content: "";
             position: absolute;
             left: 0;
-            bottom: -4px;
+            bottom: -3px;
             width: 0;
             height: 2px;
             background: var(--orange-1);
             transition: width 0.25s ease;
         }
+        
         .menu a:hover {
             color: var(--blue-2);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
+        
         .menu a:hover::after {
             width: 100%;
         }
         
-        /* HERO */
+        /* HERO - MAIS COMPACTO */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 24px;
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 40px 20px;
+            gap: 20px;
+            max-width: 980px;
+            margin: 15px auto;
+            padding: 30px 20px;
             background: linear-gradient(135deg, var(--orange-1), var(--orange-2) 70%);
             color: white;
-            border-radius: 24px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
+        
         .hero-text {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
+        
         .hero-text h1 {
-            font-size: 2.6rem;
+            font-size: 2.1rem;
             line-height: 1.2;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            margin: 0;
         }
+        
         .hero-text h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             font-weight: 600;
             font-style: italic;
             margin: 0;
         }
+        
         .hero-text p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
         }
+        
         .hero-banner img {
             width: 100%;
-            max-height: 320px;
+            max-height: 260px;
             object-fit: cover;
-            border-radius: 18px;
+            border-radius: 15px;
             box-shadow: var(--card-shadow);
             transition: transform 0.5s ease;
         }
+        
         .hero-banner img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
+        
         .cta-btn {
-            font-size: 1.1rem;
-            padding: 12px 24px;
+            font-size: 0.95rem;
+            padding: 10px 20px;
             background: #fff;
             color: var(--blue-1);
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 700;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
             text-decoration: none;
             width: max-content;
-            margin-top: 8px;
+            margin-top: 6px;
         }
+        
         .cta-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
         
-        /* SECTIONS */
-        section{padding:40px 28px; max-width:1200px; margin:0 auto;}
-        h2{color:var(--blue-1); margin:0 0 18px 0; font-family: 'Montserrat', sans-serif; font-weight:600;}
+        /* SECTIONS - MENOS ESPAÇAMENTO */
+        section{
+            padding:30px 24px;
+            max-width:1050px;
+            margin:0 auto;
+        }
         
-        /* SOBRE */
+        h2{
+            color:var(--blue-1); 
+            margin:0 0 14px 0; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight:600;
+            font-size: 1.4rem;
+        }
+        
+        /* SOBRE - MAIS COMPACTO */
         .sobre {
             display:flex;
-            gap:24px;
+            gap:20px;
             align-items:center;
             flex-wrap:wrap;
             justify-content:center;
         }
+        
         .sobre div {
             flex:1 1 40%;
             min-width:200px;
         }
+        
+        .sobre p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
         .sobre img {
-            width: 20rem;
+            width: 16rem;
             object-fit: cover;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
+        
         .sobre img:hover {
             transform: scale(1.03);
         }
+        
         .muted {
             color:#555;
             font-style: italic;
-            margin-top:8px;
+            margin-top:6px;
+            font-size: 0.85rem;
         }
         
-        /* VÍDEO */
+        /* VÍDEO - MAIS COMPACTO */
         .video-section {
             text-align: center;
         }
+        
         .video-wrapper {
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: 680px;
             aspect-ratio: 16/9;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 16px;
             box-shadow: var(--card-shadow);
-            margin: 2rem auto;
+            margin: 1.5rem auto;
         }
+        
         .video-bg {
             position: absolute;
             top: 0;
@@ -199,6 +252,7 @@
             transform: scale(1.2);
             z-index: 0;
         }
+        
         .video-foreground {
             position: relative;
             z-index: 1;
@@ -209,61 +263,68 @@
             border-radius: 10px;
         }
         
-        /* PRODUTOS MARCAS - GRID DE CARTÕES */
+        /* PRODUTOS MARCAS - CARDS MAIS COMPACTOS */
         .produtos-marcas {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 24px;
-            margin: 40px auto;
-            max-width: 1200px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 1050px;
         }
-        /* GRID que acomoda 1 a 3 cards responsivamente */
+        
+        /* GRID DE CARDS */
         .marcas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            align-items: stretch; /* Força cards terem mesma altura */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            align-items: stretch;
             justify-items: center;
         }
+        
         .marca-card {
             width: 100%;
-            max-width: 400px;
-            min-height: 460px; /* Altura mínima para uniformidade */
+            max-width: 360px;
+            min-height: 380px;
             background: white;
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
+        
         .brand-header {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             justify-content: center;
-            min-height: 50px; /* Altura mínima do header */
+            min-height: 40px;
         }
+        
         .brand-logo {
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
+        
         .brand-logo:hover {
             transform: scale(1.05);
             opacity: 0.9;
         }
+        
         .brand-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #000;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
+        
         /* Placeholder para marca vazia */
         .marca-card.empty {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
@@ -271,71 +332,81 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 460px;
+            min-height: 380px;
         }
+        
         .empty-placeholder {
             color: #999;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-family: 'Montserrat', sans-serif;
         }
+        
         .carousel-container {
             position: relative;
             width: 100%;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             background: linear-gradient(135deg, #fff, #f8f9fa);
-            flex: 1; /* Ocupa espaço disponível */
+            flex: 1;
             display: flex;
             flex-direction: column;
         }
+        
         .carousel-wrapper {
             position: relative;
             overflow: hidden;
             flex: 1;
         }
+        
         .carousel-track {
             display: flex;
             transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform;
             height: 100%;
         }
+        
         .carousel-slide {
             min-width: 100%;
-            padding: 12px;
+            padding: 10px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
         }
+        
         .carousel-slide img {
             width: 100%;
-            height: 220px;
-            object-fit: contain; /* MUDANÇA PRINCIPAL - mostra imagem completa */
+            height: 180px;
+            object-fit: contain;
             background: #fafafa;
-            border-radius: 10px;
+            border-radius: 8px;
             display: block;
         }
+        
         .product-info {
-            margin-top: 12px;
-            padding: 10px;
-            border-radius: 10px;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 8px;
             background: transparent;
             text-align: left;
             flex: 1;
         }
+        
         .product-name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.05rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #000;
-            margin: 0 0 6px 0;
+            margin: 0 0 4px 0;
         }
+        
         .product-description {
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             color: #555;
-            line-height: 1.4;
+            line-height: 1.3;
             margin: 0;
         }
-        /* BOTÕES DO CARROSSEL */
+        
+        /* BOTÕES DO CARROSSEL - MENORES */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -343,10 +414,10 @@
             background: rgba(0,0,0,0.65);
             color: white;
             border: none;
-            width: 42px;
-            height: 42px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.2s ease;
             z-index: 10;
@@ -354,62 +425,70 @@
             align-items: center;
             justify-content: center;
         }
+        
         .carousel-btn:hover {
             background: rgba(0,0,0,0.85);
-            transform: translateY(-50%) scale(1.06);
+            transform: translateY(-50%) scale(1.05);
         }
+        
         .carousel-btn.prev {
-            left: 10px;
+            left: 8px;
         }
+        
         .carousel-btn.next {
-            right: 10px;
+            right: 8px;
         }
-        /* INDICADORES */
+        
+        /* INDICADORES - MENORES */
         .carousel-indicators {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-            padding-bottom: 6px;
+            gap: 6px;
+            margin-top: 8px;
+            padding-bottom: 4px;
         }
+        
         .indicator {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #ccc;
             cursor: pointer;
             transition: all 0.25s ease;
         }
+        
         .indicator.active {
             background: #000;
-            width: 26px;
-            border-radius: 6px;
-            height: 8px;
+            width: 20px;
+            border-radius: 4px;
+            height: 6px;
         }
-
-        /* FEED + MAPA */
+        
+        /* FEED + MAPA - MAIS COMPACTO */
         .feed-mapa {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 24px;
             align-items: start;
             justify-content:center;
             justify-items: center;
         }
+        
         .insta-feed .iframe-wrapper,
         .map-container {
             width: 100%;
-            max-width: 420px;
-            height: 320px;
-            border-radius: 12px;
+            max-width: 380px;
+            height: 280px;
+            border-radius: 10px;
             box-shadow: var(--card-shadow);
             overflow:hidden;
         }
+        
         .insta-feed iframe,
         .map-container iframe {
             width:100%;
             height:100%;
-            min-height: 21rem;
+            min-height: 18rem;
             border:0;
             padding: 0;
             margin: 0;
@@ -417,101 +496,125 @@
             background:transparent;
             overflow-y: hidden;
         }
+        
         .insta-feed {
             margin: 0;
             padding: 0;
             background: transparent !important;
         }
+        
         .insta-feed iframe {
             border: none !important;
         }
-
-        /* CONTATO / FOOTER / WHATSAPP */
+        
+        /* CONTATO - MAIS COMPACTO */
         .contato {
             text-align:center;
-            font-size:1rem;
-            line-height:1.6;
+            font-size:0.9rem;
+            line-height:1.5;
         }
+        
+        .contato p {
+            margin: 8px 0;
+        }
+        
         .contato a {
             color: var(--blue-2);
             text-decoration:none;
             font-weight:500;
         }
+        
         .contato a:hover {
             color: var(--orange-1);
         }
+        
+        /* FOOTER - MAIS COMPACTO */
         .footer {
             background: linear-gradient(90deg, var(--blue-2), var(--blue-1));
             color:#fff;
-            margin-top:40px;
-            padding:40px 20px 20px;
+            margin-top:30px;
+            padding:30px 20px 15px;
+            font-size: 0.85rem;
         }
+        
         .footer-container {
             display:flex;
             justify-content:center;
             flex-wrap:wrap;
-            gap:28px;
+            gap:24px;
             text-align:center;
         }
+        
         .footer h4 {
-            margin-bottom:12px;
+            margin-bottom:10px;
             font-family: 'Montserrat', sans-serif;
             font-weight:600;
+            font-size: 1rem;
         }
+        
         .footer a {
             color:#f0f0f0;
             text-decoration:none;
         }
+        
         .footer a:hover {
             color: var(--orange-1);
             font-weight:600;
         }
+        
         .social-icons {
             display:flex;
             justify-content:center;
-            gap:16px;
-            margin-top:12px;
+            gap:12px;
+            margin-top:10px;
         }
+        
         .social-icon {
             display:inline-flex;
             align-items:center;
             justify-content:center;
-            width:40px;
-            height:40px;
+            width:34px;
+            height:34px;
             border-radius:50%;
             background:rgba(255,255,255,0.15);
             transition:all 0.3s ease;
         }
+        
         .social-icon:hover {
             background:rgba(255,255,255,0.25);
-            transform:translateY(-3px);
+            transform:translateY(-2px);
         }
+        
         .social-icon svg {
-            width:22px;
-            height:22px;
+            width:18px;
+            height:18px;
             fill:white;
         }
+        
         .social-icon:hover svg {
             fill: var(--orange-1);
         }
+        
         .footer-bottom {
             text-align:center;
-            margin-top:28px;
-            padding-top:16px;
+            margin-top:20px;
+            padding-top:12px;
             border-top:1px solid rgba(255,255,255,0.2);
-            font-size:13px;
+            font-size:12px;
             color:#ddd;
         }
+        
+        /* WHATSAPP BUTTON - MENOR */
         .whatsapp-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 18px;
+            right: 18px;
             background: #25d366;
             color: white;
-            padding: 16px;
+            padding: 14px;
             border-radius: 50%;
             box-shadow: var(--card-shadow);
-            font-size: 28px;
+            font-size: 24px;
             text-align: center;
             transition: transform 0.2s ease;
             z-index:2000;
@@ -520,181 +623,231 @@
             align-items:center;
             justify-content:center;
         }
+        
         .whatsapp-btn:hover {
-            transform: scale(1.15);
+            transform: scale(1.12);
         }
         
-        /* RESPONSIVO */
+        /* RESPONSIVO - AJUSTADO */
         @media (max-width: 880px) {
             .navbar {
-                padding: 12px 16px;
+                padding: 10px 14px;
             }
+            
             .logo {
-                height: 48px;
+                height: 38px;
             }
+            
             .menu {
-                gap: 16px;
+                gap: 14px;
             }
+            
             .menu a {
-                font-size: 14px;
+                font-size: 13px;
             }
+            
             .hero {
                 grid-template-columns: 1fr;
                 text-align:center;
-                padding:28px 20px;
-                margin: 10px;
+                padding:24px 18px;
+                margin: 8px;
             }
+            
             .hero-text h1 {
-                font-size:2rem;
+                font-size:1.7rem;
             }
+            
             .hero-text h3 {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
+            
             .hero-banner img {
-                max-height: 220px;
+                max-height: 180px;
             }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+            
             .feed-mapa {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
+            
             .insta-feed .iframe-wrapper,
             .map-container {
                 width: 100%;
                 max-width: 100%;
-                height: 320px;
+                height: 260px;
             }
+            
             .hero .cta-btn {
                 margin-left:auto;
                 margin-right:auto;
             }
+            
             .sobre img {
                 width: 100%;
-                max-width: 90%;
+                max-width: 85%;
             }
+            
             .brand-title {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
+            
             .carousel-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 18px;
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
             }
+            
             .carousel-btn.prev {
-                left: 5px;
+                left: 4px;
             }
+            
             .carousel-btn.next {
-                right: 5px;
+                right: 4px;
             }
+            
             .carousel-slide img {
-                height: 200px;
+                height: 160px;
             }
-            /* Ajuste responsivo para cards */
+            
             .marca-card {
-                min-height: 420px;
-                padding: 14px;
+                min-height: 350px;
+                padding: 12px;
             }
+            
             .marcas-grid {
                 grid-template-columns: 1fr;
                 max-width: 100%;
-                padding: 0 10px;
+                padding: 0 8px;
             }
+            
             .produtos-marcas {
-                padding: 30px 10px;
-                border-radius: 16px;
+                padding: 25px 10px;
+                border-radius: 14px;
             }
         }
         
         @media (max-width: 600px) {
             section {
-                padding: 30px 16px;
+                padding: 24px 14px;
             }
+            
             .hero {
-                padding: 24px 16px;
-                margin: 8px;
+                padding: 20px 14px;
+                margin: 6px;
             }
-            .hero-text h1 {
-                font-size: 1.75rem;
-            }
-            .hero-text h3 {
-                font-size: 1.1rem;
-            }
-            .hero-text p {
-                font-size: 1rem;
-            }
-            .cta-btn {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-            .marca-card {
-                min-height: 380px;
-                padding: 12px;
-            }
-            .brand-header {
-                min-height: 45px;
-            }
-            .brand-logo {
-                width: 36px;
-                height: 36px;
-            }
-            .brand-title {
-                font-size: 1rem;
-            }
-            .carousel-slide {
-                padding: 8px;
-            }
-            .carousel-slide img {
-                height: 180px;
-            }
-            .product-name {
-                font-size: 0.95rem;
-            }
-            .product-description {
-                font-size: 0.85rem;
-            }
-            .carousel-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-            .whatsapp-btn {
-                padding: 14px;
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .navbar {
-                padding: 10px 12px;
-            }
-            .logo {
-                height: 42px;
-            }
-            .menu {
-                gap: 12px;
-            }
-            .menu a {
-                font-size: 13px;
-            }
-            .hero {
-                padding: 20px 12px;
-            }
+            
             .hero-text h1 {
                 font-size: 1.5rem;
             }
-            .marca-card {
-                min-height: 360px;
+            
+            .hero-text h3 {
+                font-size: 0.95rem;
             }
+            
+            .hero-text p {
+                font-size: 0.85rem;
+            }
+            
+            .cta-btn {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+            
+            h2 {
+                font-size: 1.15rem;
+            }
+            
+            .marca-card {
+                min-height: 320px;
+                padding: 10px;
+            }
+            
+            .brand-header {
+                min-height: 36px;
+            }
+            
+            .brand-logo {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .brand-title {
+                font-size: 0.85rem;
+            }
+            
+            .carousel-slide {
+                padding: 6px;
+            }
+            
             .carousel-slide img {
-                height: 160px;
+                height: 150px;
+            }
+            
+            .product-name {
+                font-size: 0.8rem;
+            }
+            
+            .product-description {
+                font-size: 0.75rem;
+            }
+            
+            .carousel-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .navbar {
+                padding: 8px 10px;
+            }
+            
+            .logo {
+                height: 34px;
+            }
+            
+            .menu {
+                gap: 10px;
+            }
+            
+            .menu a {
+                font-size: 12px;
+            }
+            
+            .hero {
+                padding: 18px 10px;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .marca-card {
+                min-height: 300px;
+            }
+            
+            .carousel-slide img {
+                height: 140px;
             }
         }
         
         /* FADE-IN */
         .fade-in {
             opacity:0;
-            transform:translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform:translateY(15px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
+        
         .fade-in.show {
             opacity:1;
             transform:translateY(0);
@@ -715,7 +868,7 @@
         <!-- HERO -->
         <section class="hero fade-in">
             <div class="hero-text">
-                <h1>Loja do João</h1>
+                <h1>LOJA DO JOÃO</h1>
                 <h3>Moda casual, surfwear e acessórios</h3>
                 <p>Qualidade, estilo e atendimento próximo em Piracicaba.</p>
                 <a href="#contato" class="cta-btn">Fale Conosco</a>
@@ -752,7 +905,7 @@
         
         <!-- PRODUTOS MARCAS -->
         <section id="produtos" class="produtos-marcas fade-in">
-            <h2 style="margin-bottom:18px;">— Produtos —</h2>
+            <h2 style="margin-bottom:14px;">— Produtos —</h2>
             <div class="marcas-grid">
                 <!-- CARD 1 - QUIKSILVER -->
                 <div class="marca-card">
@@ -821,14 +974,12 @@
                                 </div>
                             </div>
                         </div>
-
                         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
                         <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
                         <div class="carousel-indicators"></div>
                     </div>
                 </div>
-
+                
                 <!-- CARD 2 - ONBONGO -->
                 <div class="marca-card">
                     <div class="brand-header">
@@ -861,14 +1012,12 @@
                                 </div>
                             </div>
                         </div>
-
                         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
                         <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
                         <div class="carousel-indicators"></div>
                     </div>
                 </div>
-
+                
                 <!-- CARD 3 - KENNER -->
                 <div class="marca-card">
                     <div class="brand-header">
@@ -889,7 +1038,7 @@
                                     <img src="assets/Kenner2.jpg" alt="RIP CURL Graphite" loading="lazy">
                                     <div class="product-info">
                                         <h4 class="product-name">Kenner Clássico com Logo em Destaque</h4>
-                                        <p class="product-description">Chinelo Kenner preto com logo branco na palmilha e símbolo “K” na tira.</p>
+                                        <p class="product-description">Chinelo Kenner preto com logo branco na palmilha e símbolo "K" na tira.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-slide">
@@ -901,14 +1050,12 @@
                                 </div>
                             </div>
                         </div>
-
                         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
                         <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
                         <div class="carousel-indicators"></div>
                     </div>
                 </div>
-
+                
                 <!-- CARD 4 - RIPCURL -->
                 <div class="marca-card">
                     <div class="brand-header">
@@ -941,14 +1088,12 @@
                                 </div>
                             </div>
                         </div>
-
                         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
                         <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
                         <div class="carousel-indicators"></div>
                     </div>
                 </div>
-
+                
                 <!-- CARD 5 - GANGSTER -->
                 <div class="marca-card">
                     <div class="brand-header">
@@ -981,13 +1126,64 @@
                                 </div>
                             </div>
                         </div>
-
                         <button class="carousel-btn prev" aria-label="Anterior">❮</button>
                         <button class="carousel-btn next" aria-label="Próximo">❯</button>
-
                         <div class="carousel-indicators"></div>
                     </div>
                 </div>
+                
+                <!-- CARD 6 - HAWAIIAN DREAMS -->
+                <div class="marca-card">
+                    <div class="brand-header">
+                        <img src="assets/HDLogo.png" alt="Logo HD" class="brand-logo">
+                        <h3 class="brand-title">Hawaiian Dreams</h3>
+                    </div>
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="assets/HD1.jpg" alt="Shorts Azul "ZEN FUTURE"" loading="lazy">
+                                    <div class="product-info">
+                                        <h4 class="product-name">Shorts Azul "ZEN FUTURE"</h4>
+                                        <p class="product-description">Shorts azul vibrante com cordão ajustável e etiqueta "ZEN FUTURE" na barra.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/HD2.jpg" alt="Moletom Verde "HD SINCE 1984"" loading="lazy">
+                                    <div class="product-info">
+                                        <h4 class="product-name">Moletom Verde "HD SINCE 1984"</h4>
+                                        <p class="product-description">Moletom verde com capuz, bolso frontal e estampa branca "HD HAWAIIAN DREAMS SINCE 1984"</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/HD3.jpg" alt="Camiseta Salmão HD HAWAIIAN DREAMS" loading="lazy">
+                                    <div class="product-info">
+                                        <h4 class="product-name">Camiseta Salmão HD HAWAIIAN DREAMS</h4>
+                                        <p class="product-description">Camiseta salmão com estampa frontal em destaque "HD HAWAIIAN DREAMS".</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/HD4.jpg" alt="Boardshort Quiksilver Word Block" loading="lazy">
+                                    <div class="product-info">
+                                        <h4 class="product-name">Moletom Preto "DISTRICT AND DESIGN"</h4>
+                                        <p class="product-description">Moletom preto com estampa "HAWAIIAN DREAMS" e "DISTRICT AND DESIGN".</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/HD5.jpg" alt="Camiseta Bege" loading="lazy">
+                                    <div class="product-info">
+                                        <h4 class="product-name">Conjunto camiseta bege com bermuda jeans</h4>
+                                        <p class="product-description">Camiseta bege com logo circular discreto no peito, combinada com bermuda jeans clara.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" aria-label="Anterior">❮</button>
+                        <button class="carousel-btn next" aria-label="Próximo">❯</button>
+                        <div class="carousel-indicators"></div>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <!-- FEED + MAPA -->
@@ -1048,10 +1244,10 @@
             </div>
         </footer>
     </main>
-    
+
     <!-- Botão WhatsApp -->
     <a href="https://wa.me/5519988553385" class="whatsapp-btn" target="_blank" aria-label="Conversar no WhatsApp">💬</a>
-    
+
     <script>
         // FADE-IN
         const faders = document.querySelectorAll('.fade-in');
@@ -1059,6 +1255,7 @@
             threshold: 0.2,
             rootMargin: "0px 0px -50px 0px"
         };
+
         const appearOnScroll = new IntersectionObserver(function(entries, observer){
             entries.forEach(entry => {
                 if(!entry.isIntersecting) return;
@@ -1066,6 +1263,7 @@
                 observer.unobserve(entry.target);
             });
         }, appearOptions);
+
         faders.forEach(fader => {
             appearOnScroll.observe(fader);
         });
@@ -1073,14 +1271,14 @@
         /* CARROSSEIS INDEPENDENTES */
         document.querySelectorAll('.marca-card:not(.empty)').forEach((card, cardIndex) => {
             const track = card.querySelector('.carousel-track');
-            if (!track) return; // Pula cards vazios
-            
+            if (!track) return;
+
             const slides = Array.from(track.children);
             const prevBtn = card.querySelector('.carousel-btn.prev');
             const nextBtn = card.querySelector('.carousel-btn.next');
             const indicatorsContainer = card.querySelector('.carousel-indicators');
-
-            // gerar indicadores dinamicamente
+            
+            // Gerar indicadores
             slides.forEach((_, i) => {
                 const dot = document.createElement('span');
                 dot.className = 'indicator' + (i === 0 ? ' active' : '');
@@ -1119,11 +1317,11 @@
                 });
             });
 
-            // Suporte ao toque (gestos)
+            // Suporte ao toque
             let touchStartX = 0;
             let touchEndX = 0;
             const wrapper = card.querySelector('.carousel-wrapper');
-
+            
             wrapper.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
             }, {passive: true});
@@ -1131,33 +1329,32 @@
             wrapper.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 if (touchEndX < touchStartX - 40) {
-                    // swipe left
                     currentSlide = (currentSlide + 1) % total;
                     update();
                     restartAutoplay();
                 } else if (touchEndX > touchStartX + 40) {
-                    // swipe right
                     currentSlide = (currentSlide - 1 + total) % total;
                     update();
                     restartAutoplay();
                 }
             }, {passive: true});
 
-            // autoplay para cada carrossel (independente)
+            // Autoplay
             let autoplayInterval = null;
+            
             function startAutoplay() {
                 autoplayInterval = setInterval(() => {
                     currentSlide = (currentSlide + 1) % total;
                     update();
-                }, 6000 + (cardIndex * 500)); // leve offset para não trocarem todos ao mesmo tempo
+                }, 6000 + (cardIndex * 500));
             }
+
             function restartAutoplay() {
                 clearInterval(autoplayInterval);
                 startAutoplay();
             }
 
             startAutoplay();
-            // garantia de posição inicial
             update();
         });
     </script>
